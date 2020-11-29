@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    node_app:
+        image: node:stretch
+        container_name: node_app
+        stdin_open: true
+        tty: true
+        command: /app/entrypoint.sh
+        working_dir: /app
+        volumes:
+            - "./src/:/app/"
