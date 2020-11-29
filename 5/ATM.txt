@@ -1,0 +1,4 @@
+1. start -> wait for PIN -> 1st try -> 2nd try -> 3rd try -> eat card
+2. start -> wait for PIN -> 1st try -> 2nd try -> 3rd try -> access to account
+3. start -> wait for PIN -> 1st try -> 2nd try -> access to account
+4. start -> wait for PIN -> 1st try -> access to account

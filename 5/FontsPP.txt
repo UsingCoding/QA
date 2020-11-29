@@ -1,0 +1,28 @@
+Fonts: Arial, Times New Roman, Comic Sans MS, Courier New 
+Size: 1, 50.1, 16, 4000
+Font style: ussual, bold, italic, bold italic
+Text color: black, white, blue
+Underline: none, line, double line, dotted, wavy line
+Underline color: none, red, green, blue, black, white
+Crossed out: true, false
+Double crossed out: true, false
+Superscript: true, false
+Subscript: true, false 
+Small caps: true, false
+All uppercase: true, false
+Align height of characters: true, false
+Shift: -100, -25, -1, 0, 1, 30, 100
+
+{Fonts, Size, Font style, Text color, Underline, Underline color, Crossed out, Double crossed out, Superscript, Subscript, Small caps, All uppercase, Align height of characters, Shift} @ 2
+
+IF [Crossed out] = "true" THEN [Double crossed out] = "false";
+IF [Double crossed out] = "true" THEN [Crossed out] = "false";
+IF [Superscript] = "true" THEN [Subscript] = "false";
+IF [Subscript] = "true" THEN [Superscript] = "false";
+IF [Shift] = 0 THEN [Subscript] = "false" AND [Superscript] = "false"; 
+IF [Small caps] = "true" THEN [Align height of characters] = "false";
+IF [Align height of characters] = "true" THEN [Small caps] = "false";
+IF [Underline] = "none" THEN [Underline color] = "none";
+IF [Underline color] = "none" THEN [Underline] = "none";
+IF [Shift] in {1, 30, 100} THEN [Superscript] = "true";
+IF [Shift] in {-100, -25, -1} THEN [Subscript] = "true";

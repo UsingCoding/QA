@@ -1,0 +1,43 @@
+Fonts	Size	Font style	Text color	Underline	Underline color	Crossed out	Double crossed out	Superscript	Subscript	Small caps	All uppercase	Align height of characters	Shift
+Arial	50	ussual	black	double line	blue	false	false	false	true	false	false	true	-25
+Calibri	50	bold italic	blue	none	none	false	true	true	false	true	false	false	30
+Calibri	1	ussual	black	dotted	green	false	true	true	false	false	true	true	1
+Calibri	4000	italic	white	none	none	true	false	true	false	true	true	false	100
+Times New Roman	1	italic	white	double line	white	false	true	false	true	true	true	false	-100
+Times New Roman	1	bold italic	black	line	green	false	true	false	true	true	false	false	-25
+Calibri	4000	bold	blue	wavy line	blue	false	false	false	true	true	true	false	-100
+Calibri	1	bold	white	line	black	true	false	true	false	false	true	true	100
+Times New Roman	50	italic	black	line	red	false	true	true	false	true	false	false	1
+Times New Roman	50	italic	blue	line	blue	false	true	false	true	true	true	false	-1
+Arial	1	bold italic	blue	dotted	blue	false	true	true	false	false	true	true	100
+Calibri	4000	bold	blue	wavy line	red	false	true	false	true	false	false	true	-25
+Arial	4000	bold	black	double line	green	true	false	true	false	true	false	false	30
+Calibri	1	bold italic	blue	dotted	white	false	false	true	false	false	true	true	1
+Arial	4000	ussual	blue	dotted	red	true	false	false	true	false	false	true	-100
+Calibri	1	bold italic	white	wavy line	blue	true	false	true	false	true	false	false	1
+Times New Roman	50	ussual	black	wavy line	white	false	false	true	false	false	false	false	100
+Calibri	4000	bold	white	none	none	true	false	true	false	true	true	false	1
+Times New Roman	4000	bold	white	none	none	false	false	false	true	false	true	true	-25
+Arial	4000	italic	blue	wavy line	black	true	false	true	false	true	true	false	30
+Arial	1	bold	white	dotted	blue	false	false	false	false	false	true	true	0
+Arial	4000	bold italic	white	line	black	false	true	false	false	true	false	false	0
+Times New Roman	4000	bold	black	double line	red	true	false	true	false	false	false	false	100
+Times New Roman	50	italic	black	none	none	false	true	true	false	false	false	false	0
+Times New Roman	50	bold	white	dotted	black	true	false	false	true	false	true	true	-25
+Calibri	1	ussual	blue	double line	red	true	false	false	true	false	true	true	0
+Arial	1	ussual	white	dotted	white	true	false	true	false	true	true	false	30
+Calibri	1	bold italic	blue	dotted	red	false	false	false	true	false	true	false	-1
+Calibri	4000	bold italic	black	none	none	false	true	false	true	false	false	true	-100
+Calibri	4000	italic	white	wavy line	green	true	false	false	true	false	false	true	-1
+Calibri	50	ussual	blue	double line	green	false	true	true	false	false	false	true	100
+Arial	50	italic	blue	double line	black	true	false	true	false	false	true	true	1
+Calibri	50	ussual	black	line	black	true	false	false	true	true	false	false	-100
+Arial	50	bold italic	black	line	white	true	false	false	true	false	false	true	-1
+Times New Roman	4000	bold italic	blue	double line	blue	false	false	true	false	false	true	true	30
+Arial	50	bold	black	line	green	true	false	false	true	false	true	true	-100
+Calibri	50	bold	white	line	red	false	true	true	false	true	false	false	30
+Calibri	4000	italic	blue	dotted	white	false	true	false	true	false	true	false	-25
+Calibri	50	bold	blue	wavy line	green	false	true	false	true	true	true	false	0
+Arial	1	ussual	blue	none	none	false	true	false	true	false	true	true	-1
+Calibri	4000	bold	blue	dotted	white	false	true	true	false	false	true	false	0
+Calibri	1	bold	black	double line	black	false	true	false	true	false	false	true	-1

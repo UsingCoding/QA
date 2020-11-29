@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    mb_app:
+        image: node:stretch
+        container_name: mb_app
+        stdin_open: true
+        tty: true
+        command: /app/entrypoint.sh
+        working_dir: /app
+        ports:
+            - "2525:2525"
+            - "44302:44302"
+        volumes:
+            - "./entrypoint.sh:/app/entrypoint.sh"
+            - "./mb.json:/app/mb.json"

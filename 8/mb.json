@@ -1,0 +1,70 @@
+{
+    "imposters": [
+      {
+        "protocol": "http",
+        "port": 44302,
+        "recordRequests": false,
+        "stubs": [
+          {
+            "predicates": [
+              {
+                "and": [
+                  {
+                    "equals": {
+                      "path": "/rate/usdollar",
+                      "method": "GET"
+                    }
+                  }
+                ]
+              }
+            ],
+            "responses": [
+              {
+                "is": {
+                  "body": {
+                    "usdollar": {
+                      "rate": 76.21
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "predicates": [
+              {
+                "and": [
+                  {
+                    "equals": {
+                      "path": "/rate/euro",
+                      "method": "GET"
+                    }
+                  }
+                ]
+              }
+            ],
+            "responses": [
+              {
+                "is": {
+                  "body": {
+                    "euro": {
+                      "rate": 90.36
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "responses": [
+              {
+                "is": {
+                  "statusCode": 404
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
