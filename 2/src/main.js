@@ -25,8 +25,8 @@ class Main
 
         await this.checkUrl('');
 
-        fs.writeFileSync(this._VALID_LINKS_FILE_NAME, this._validUrls.length);
-        fs.writeFileSync(this._INVALID_LINKS_FILE_NAME, this._invalidUrls.length);
+        fs.writeFileSync(this._VALID_LINKS_FILE_NAME);
+        fs.writeFileSync(this._INVALID_LINKS_FILE_NAME);
     }
 
     async checkUrl(link)
@@ -43,31 +43,23 @@ class Main
             return;
         }
 
-        console.log(url);
-
         try
         {
             var result = await request(url);
 
             if (result.statusCode < 200 || result.statusCode >= 300)
             {
-                console.log(' non 200 - code - ' + result.statusCode + ' - ' + this._invalidUrls.length);
-
                 this._invalidUrls.push(url);
                 return;
             }
         }
         catch (error)
         {
-            console.log('kek ivalid');
-
             this._invalidUrls.push(url);
             return;
         }
 
         this._validUrls.push(url);
-
-        console.log(this._validUrls.length);
 
         const document = parse(result.body);
 
