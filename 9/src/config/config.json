@@ -59,5 +59,29 @@
             },
             "response_code" : 200
         }
+    ],
+    "aliasing_tests_data": [
+        {
+            "product" : {
+                "category_id": "2",
+  	            "title": "Pot",
+  	            "price": "10",
+  	            "old_price": "9",
+  	            "keywords": "time",
+  	            "hit": "1"
+            },
+            "alias_postfix": "-0"
+        },
+        {
+            "product" : {
+                "category_id": "2",
+  	            "title": "Pottik-0",
+  	            "price": "10",
+  	            "old_price": "9",
+  	            "keywords": "time",
+  	            "hit": "1"
+            },
+            "alias_postfix": "-0"
+        }
     ]
 }

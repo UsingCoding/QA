@@ -62,12 +62,60 @@ class TestApi(unittest.TestCase):
                     break
 
 
-            self.assertNotEqual(productInList, None)
+            self.assertNotEqual(productInList, None, "Added product not found")
 
             self._compareProducts(productFromConfig, productInList)
 
             self._deleteProduct(str(addedProductId))
 
+
+    def testProductsWithDuplicatesAliases(self):
+        url = self.config['add_product_url']
+
+        for testData in self.config['aliasing_tests_data']:
+
+            productFromConfig = testData['product']
+
+            response = requests.post(url, json=productFromConfig)
+
+            self.assertEqual(response.status_code, 200)
+
+            content = response.json()
+
+            self.assertTrue('id' in content)
+
+            firstlyAddedProductId = content['id']
+
+            print('Firstly added product id: ' + str(firstlyAddedProductId))
+
+            # create same product twice to ensure that postfix will be added to alias
+            response = requests.post(url, json=productFromConfig)
+
+            self.assertEqual(response.status_code, 200)
+
+            content = response.json()
+
+            self.assertTrue('id' in content)
+
+            addedProductId = content['id']
+
+            print('Secondly added product id: ' + str(addedProductId))
+
+            productsList = self._getAllProducts()
+
+            productInList = None
+
+            for product in productsList:
+                if int(product['id']) == addedProductId:
+                    productInList = product
+                    break
+
+            self.assertNotEqual(productInList, None, "Added product not found")
+
+            self.assertTrue(productInList['alias'].endswith(testData['alias_postfix']))
+
+            self._deleteProduct(str(firstlyAddedProductId))
+            self._deleteProduct(str(addedProductId))
 
 
     def _getAllProducts(self):
