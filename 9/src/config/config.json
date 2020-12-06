@@ -1,0 +1,63 @@
+{
+    "get_all_products_url": "http://91.210.252.240:9010/api/products",
+    "delete_product_url": "http://91.210.252.240:9010/api/deleteproduct?id={ID}",
+    "add_product_url": "http://91.210.252.240:9010/api/addproduct",
+    "edit_product_url": "http://91.210.252.240:9010/api/editproduct",
+    "creare_product_tests_data": [
+        {
+            "product" : {
+                "category_id": "13",
+  	            "title": "Watch",
+  	            "content": "title",
+  	            "price": "10.4",
+  	            "old_price": "9.1",
+  	            "status": "1",
+  	            "keywords": "watches, time",
+  	            "description": "Description"
+            },
+            "response_code" : 200
+        },
+        {
+            "product" : {
+                "category_id": "2",
+  	            "title": "Watch",
+  	            "content": "title",
+  	            "price": "10.4",
+  	            "old_price": "9.1",
+  	            "status": "10",
+  	            "keywords": "watches, time",
+  	            "description": "Description",
+  	            "hit": "4"
+            },
+            "response_code" : 200
+        },
+        {
+            "product" : {
+                "category_id": "4",
+  	            "title": "Watchman",
+  	            "content": "Content",
+  	            "price": "10.5",
+  	            "old_price": "9",
+  	            "status": "1",
+  	            "keywords": "watches, time",
+  	            "description": "Description",
+  	            "hit": "-11"
+            },
+            "response_code" : 200
+        },
+        {
+            "product" : {
+                "category_id": "2",
+  	            "title": "Watch",
+  	            "content": "title",
+  	            "price": "10",
+  	            "old_price": "9",
+  	            "status": "1",
+  	            "keywords": "watches, time",
+  	            "description": "Description",
+  	            "hit": "10"
+            },
+            "response_code" : 200
+        }
+    ]
+}
