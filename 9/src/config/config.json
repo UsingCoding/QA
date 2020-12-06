@@ -83,5 +83,52 @@
             },
             "alias_postfix": "-0"
         }
+    ],
+    "delete_product_test_data": [
+        {
+            "product" : {
+                "category_id": "4",
+  	            "title": "Cup",
+  	            "price": "10",
+  	            "old_price": "9",
+  	            "keywords": "Wheel",
+  	            "hit": "0"
+            },
+            "with_adding_new_product": true
+        },
+        {
+            "product" : {
+                "category_id": "4",
+  	            "title": "Cup of tea",
+  	            "price": "10",
+  	            "old_price": "9",
+  	            "keywords": "Tea",
+  	            "hit": "0"
+            },
+            "with_adding_new_product": true
+        },
+        {
+            "product" : {
+                "category_id": "4",
+  	            "title": "Wheel",
+  	            "price": "1000",
+  	            "old_price": "90",
+  	            "keywords": "Car",
+  	            "hit": "0"
+            },
+            "with_adding_new_product": true
+        },
+        {
+            "id": "1231231231"
+        },
+        {
+            "id": "-131"
+        },
+        {
+            "id": "0"
+        },
+        {
+            "id": "ab"
+        }
     ]
 }

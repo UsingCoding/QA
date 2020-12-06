@@ -117,6 +117,28 @@ class TestApi(unittest.TestCase):
             self._deleteProduct(str(firstlyAddedProductId))
             self._deleteProduct(str(addedProductId))
 
+    def testDeleteProducts(self):
+
+        for testData in self.config['delete_product_test_data']:
+            if 'with_adding_new_product' in testData and testData['with_adding_new_product']:
+                url = self.config['add_product_url']
+
+                productFromConfig = testData['product']
+
+                response = requests.post(url, json=productFromConfig)
+
+                self.assertEqual(response.status_code, 200)
+
+                content = response.json()
+
+                self.assertTrue('id' in content)
+
+                addedProductId = content['id']
+
+                self._deleteProduct(str(addedProductId))
+                continue
+
+            self._deleteProduct(testData['id'])
 
     def _getAllProducts(self):
         url = self.config['get_all_products_url']
