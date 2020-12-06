@@ -70,34 +70,14 @@ class TestApi(unittest.TestCase):
 
 
     def testProductsWithDuplicatesAliases(self):
-        url = self.config['add_product_url']
-
         for testData in self.config['aliasing_tests_data']:
 
-            productFromConfig = testData['product']
-
-            response = requests.post(url, json=productFromConfig)
-
-            self.assertEqual(response.status_code, 200)
-
-            content = response.json()
-
-            self.assertTrue('id' in content)
-
-            firstlyAddedProductId = content['id']
+            firstlyAddedProductId = self._addProduct(testData['product'])
 
             print('Firstly added product id: ' + str(firstlyAddedProductId))
 
             # create same product twice to ensure that postfix will be added to alias
-            response = requests.post(url, json=productFromConfig)
-
-            self.assertEqual(response.status_code, 200)
-
-            content = response.json()
-
-            self.assertTrue('id' in content)
-
-            addedProductId = content['id']
+            addedProductId = self._addProduct(testData['product'])
 
             print('Secondly added product id: ' + str(addedProductId))
 
@@ -121,19 +101,8 @@ class TestApi(unittest.TestCase):
 
         for testData in self.config['delete_product_test_data']:
             if 'with_adding_new_product' in testData and testData['with_adding_new_product']:
-                url = self.config['add_product_url']
 
-                productFromConfig = testData['product']
-
-                response = requests.post(url, json=productFromConfig)
-
-                self.assertEqual(response.status_code, 200)
-
-                content = response.json()
-
-                self.assertTrue('id' in content)
-
-                addedProductId = content['id']
+                addedProductId = self._addProduct(testData['product'])
 
                 self._deleteProduct(str(addedProductId))
                 continue
@@ -148,6 +117,19 @@ class TestApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
         return response.json()
+
+    def _addProduct(self, product):
+        url = self.config['add_product_url']
+
+        response = requests.post(url, json=product)
+
+        self.assertEqual(response.status_code, 200)
+
+        content = response.json()
+
+        self.assertTrue('id' in content)
+
+        return content['id']
 
     def _deleteProduct(self, id):
         url = self.config['delete_product_url'].replace('{ID}', id)

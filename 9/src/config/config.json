@@ -130,5 +130,31 @@
         {
             "id": "ab"
         }
+    ],
+    "edit_product_test_data": [
+        {
+            "product" : {
+                "category_id": "4",
+  	            "title": "Watchman",
+  	            "content": "Content",
+  	            "price": "10.5",
+  	            "old_price": "9",
+  	            "status": "1",
+  	            "keywords": "watches, time",
+  	            "description": "Description",
+  	            "hit": "0"
+            },
+            "changed_data" : {
+                "category_id": "1",
+  	            "title": "Watchmans",
+  	            "content": "No -content",
+  	            "price": "0",
+  	            "old_price": "10.5",
+  	            "status": "0",
+  	            "keywords": "time",
+  	            "description": "No-Description",
+  	            "hit": "1"
+            }
+        }
     ]
 }
