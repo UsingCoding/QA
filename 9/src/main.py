@@ -7,7 +7,7 @@ class TestApi(unittest.TestCase):
         with open("config/config.json", "r") as configFile:
             self.config = json.load(configFile)
 
-    def testProductsList(self):
+    def _testProductsList(self):
         productsList = self._getAllProducts()
 
         for product in productsList:
@@ -27,7 +27,7 @@ class TestApi(unittest.TestCase):
 
 
 
-    def testCreateProduct(self):
+    def _testCreateProduct(self):
 
         url = self.config['add_product_url']
 
@@ -69,7 +69,7 @@ class TestApi(unittest.TestCase):
             self._deleteProduct(str(addedProductId))
 
 
-    def testProductsWithDuplicatesAliases(self):
+    def _testProductsWithDuplicatesAliases(self):
         for testData in self.config['aliasing_tests_data']:
 
             firstlyAddedProductId = self._addProduct(testData['product'])
@@ -97,7 +97,7 @@ class TestApi(unittest.TestCase):
             self._deleteProduct(str(firstlyAddedProductId))
             self._deleteProduct(str(addedProductId))
 
-    def testDeleteProducts(self):
+    def _testDeleteProducts(self):
 
         for testData in self.config['delete_product_test_data']:
             if 'with_adding_new_product' in testData and testData['with_adding_new_product']:
@@ -109,6 +109,26 @@ class TestApi(unittest.TestCase):
 
             self._deleteProduct(testData['id'])
 
+    def testEditProduct(self):
+        url = self.config['edit_product_url']
+
+        for testData in self.config['edit_product_test_data']:
+            productId = self._addProduct(testData['product'])
+
+            changedProductData = testData['changed_data']
+
+            response = requests.post(url, json={'id': productId, **changedProductData})
+
+            self.assertEqual(response.status_code, 200)
+
+            print(response.content)
+
+            product = self._findProductById(productId)
+
+            self.assertNotEqual(product, None, 'Failed to find modified product')
+
+            self._compareProducts(changedProductData, product)
+
     def _getAllProducts(self):
         url = self.config['get_all_products_url']
 
@@ -117,6 +137,15 @@ class TestApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
         return response.json()
+
+    def _findProductById(self, id):
+        productsList = self._getAllProducts()
+
+        for product in productsList:
+            if int(product['id']) == id:
+                return product
+
+        return None
 
     def _addProduct(self, product):
         url = self.config['add_product_url']

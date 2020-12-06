@@ -146,8 +146,8 @@
             },
             "changed_data" : {
                 "category_id": "1",
-  	            "title": "Watchmans",
-  	            "content": "No -content",
+                "content": "No -content",
+                "title": "Wheel",
   	            "price": "0",
   	            "old_price": "10.5",
   	            "status": "0",
