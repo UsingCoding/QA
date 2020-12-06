@@ -7,7 +7,7 @@ class TestApi(unittest.TestCase):
         with open("config/config.json", "r") as configFile:
             self.config = json.load(configFile)
 
-    def _testProductsList(self):
+    def testProductsList(self):
         productsList = self._getAllProducts()
 
         for product in productsList:
@@ -27,7 +27,7 @@ class TestApi(unittest.TestCase):
 
 
 
-    def _testCreateProduct(self):
+    def testCreateProduct(self):
 
         url = self.config['add_product_url']
 
@@ -37,16 +37,14 @@ class TestApi(unittest.TestCase):
 
             response = requests.post(url, json=productFromConfig)
 
-            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.status_code, testData['response_code'], "Response from server is not " + str(testData['response_code']))
 
             if testData['response_code'] != 200:
                 continue
 
-            print(response.content)
-
             content = response.json()
 
-            self.assertTrue('id' in content)
+            self.assertTrue('id' in content, 'Id not returned from server')
 
             addedProductId = content['id']
 
@@ -69,7 +67,7 @@ class TestApi(unittest.TestCase):
             self._deleteProduct(str(addedProductId))
 
 
-    def _testProductsWithDuplicatesAliases(self):
+    def testProductsWithDuplicatesAliases(self):
         for testData in self.config['aliasing_tests_data']:
 
             firstlyAddedProductId = self._addProduct(testData['product'])
@@ -92,12 +90,12 @@ class TestApi(unittest.TestCase):
 
             self.assertNotEqual(productInList, None, "Added product not found")
 
-            self.assertTrue(productInList['alias'].endswith(testData['alias_postfix']))
+            self.assertTrue(productInList['alias'].endswith(testData['alias_postfix']), "Product doesn`t have alias " + testData['alias_postfix'])
 
             self._deleteProduct(str(firstlyAddedProductId))
             self._deleteProduct(str(addedProductId))
 
-    def _testDeleteProducts(self):
+    def testDeleteProducts(self):
 
         for testData in self.config['delete_product_test_data']:
             if 'with_adding_new_product' in testData and testData['with_adding_new_product']:
