@@ -25,8 +25,8 @@ class Main
 
         await this.checkUrl('');
 
-        fs.writeFileSync(this._VALID_LINKS_FILE_NAME);
-        fs.writeFileSync(this._INVALID_LINKS_FILE_NAME);
+        fs.writeFileSync(this._VALID_LINKS_FILE_NAME, JSON.stringify(this._validUrls));
+        fs.writeFileSync(this._INVALID_LINKS_FILE_NAME, JSON.stringify(this._invalidUrls));
     }
 
     async checkUrl(link)
